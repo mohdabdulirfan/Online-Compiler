@@ -25,5 +25,9 @@
   "dependencies": {
     "compilex": "^0.7.4",
     "express": "^4.17.1"
+  },
+  "engines": {
+    "node" : "~12.14.0",
+    "npm" : "~6.13.4"
   }
 }
