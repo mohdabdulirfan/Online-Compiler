@@ -4,12 +4,14 @@ body{
 }
 textarea{
     border: 2px;
-    border-color: lawngreen;
+    border-color: rgb(3, 3, 12);
     border-radius: 2px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
+h3{
+    color: rgb(rgb(17, 13, 13), rgb(4, 12, 4), rgb(3, 3, 7));
+}
+
+
 /*    align-content: center;*/
 
 /*

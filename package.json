@@ -18,11 +18,14 @@
   },
   "homepage": "https://github.com/mohdabdulirfan/Online-Compiler#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "compilex": "^0.7.4",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "request": "^2.88.2"
   },
   "engines": {
-    "node" : "~12.14.0",
-    "npm" : "~6.13.4"
-  }
+    "node": "~12.14.0",
+    "npm": "~6.13.4"
+  },
+  "devDependencies": {}
 }

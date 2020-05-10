@@ -40,38 +40,34 @@
         </nav>
       </nav>
       <br /><br />
-      <h3 style="color: darkslategrey;">Online Compiler</h3>
+      <center>
+      <h2 style="color: darkslategrey;">Online Compiler</h2>
       <br />
       <form id="myform" name="myform" method="post" action="compilecode">
-        <h3>Code</h3>
-        <textarea rows="13" cols="100" id="code" name="code" style="border :2px; border-color: rgb(17, 19, 17);"></textarea>
-        <br />
-        <h3>Input</h3>
-        <textarea rows="10" cols="100" id="input" name="input" style="border :2px; border-color: rgb(13, 19, 13);"></textarea>
-        <br />
-        Language :
+        <h4>Language</h4>
         <select name="lang">
           <option value="C">C</option>
-          <option value="Java">Java</option>
-          <option value="Python">Python</option>
+          <option value="CPP14">C++</option>
+          <option value="JAVA">Java</option>
+          <option value="PYTHON">Python</option>
         </select>
-        Compile With Input :
-        <input type="radio" name="inputRadio" id="inputRadio" value="true" />Yes
-        <input type="radio" name="inputRadio" id="inputRadio" value="false" />No
+        <h3>Code</h3>
+        <textarea rows="30" cols="60" id="code" name="code"></textarea>
+        <br />
+        <h3>Input</h3>
+        <textarea rows="20" cols="60" id="input" name="input"></textarea>
+        <br />
+        <!-- Language :  -->
         <br />
         <input type="submit" value="submit" name="submit" />
+        <h3>OUTPUT</h3>
+        <p id="output" value="output"></p>
       </form>
     </center>
-    <br><h3>Output</h3><br>
+    <br><h3 style="text-align: center;">Output</h3><br>
     <center>
-      <textarea
-        id="output"
-        class="form-control"
-        name="output"
-        rows="10"
-        cols="50"
-      ></textarea>
-    <br /><br />
+      <textarea id="output" name="output" rows="10" cols="100"></textarea>
+    <br /><br /></center>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
