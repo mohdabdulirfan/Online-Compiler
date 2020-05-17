@@ -20,10 +20,103 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     />
+    <style>
+      .body {
+        background-color: rgb(248, 237, 250);
+        animation-direction: normal;
+      }
+      .heading {
+        /* color: rgb(133, 2, 255); */
+        font-size: larger;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        /* font-size: large; */
+        color: #8407a3;
+        /* background: #ffffff; */
+        text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee,
+          2px 1px 1px #cccccc, 1px 2px 1px #eeeeee, 3px 2px 1px #cccccc,
+          2px 3px 1px #eeeeee, 4px 3px 1px #cccccc, 3px 4px 1px #eeeeee,
+          5px 4px 1px #cccccc, 4px 5px 1px #eeeeee, 6px 5px 1px #cccccc,
+          5px 6px 1px #eeeeee, 7px 6px 1px #cccccc;
+        color: #8407a3;
+        /* background: #ffffff; */
+      }
+      .heading:hover {
+        font-size: x-large;
+        color: black;
+      }
+      .lang {
+        font-size: medium;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: #8407a3;
+      }
+      .selection {
+        position: relative;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: #8407a3;
+      }
+      .code {
+        font-size: medium;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: #8407a3;
+      }
+      .code_box textarea {
+        border: 2px;
+        border-color: #8407a3;
+        border-radius: 4px;
+      }
+      .input {
+        font-size: medium;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: #8407a3;
+      }
+      .input_box textarea {
+        border: 2px;
+        border-color: #8407a3;
+        border-radius: 4px;
+      }
+      .output {
+        font-size: medium;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: #8407a3;
+      }
+      .output_box textarea {
+        border: 2px;
+        border-color: #8407a3;
+        border-radius: 4px;
+      }
+      .selection select {
+        width: 20%;
+        padding: 10px 15px;
+        border: 1px dashed rgb(243, 210, 253);
+        border-radius: 4px;
+        background-color: rgb(183, 0, 255);
+        box-sizing: border-box;
+        margin: 0;
+        border: 1px solid #aaa;
+        box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+        /* border-radius: 0.5em; */
+      }
+      .selection select option {
+        color: #eeeeee;
+      }
+      .submit_button {
+        border-radius: 8px;
+        /* background-color: #8407a3; */
+      }
+
+      .clear_button {
+        border-radius: 8px;
+      }
+    </style>
   </head>
   <body>
-      <!-- <h1>Online IDE</h1> -->
-      <!-- <img style="float: left;" src="https://img.icons8.com/nolan/96/source-code.png"/> -->
+    <div class="body">
       <nav class="navbar navbar-inverse navbar-fixed-top nbar">
         <!-- Image and text -->
         <nav class="navbar navbar-light bg-light">
@@ -33,61 +126,80 @@
               width="30"
               height="30"
               class="d-inline-block align-top"
-              alt=""
-            />
-            <!-- <i class="fas fa-laptop-code"></i> -->CODEC
+              alt="CODEC"
+            />CODEC
           </a>
-          <!--                        <h3>CODEC</h3>-->
         </nav>
       </nav>
       <br /><br />
       <center>
-      <h2 style="color: darkslategrey;">Online Compiler</h2>
-      <br />
-      <form id="myform" name="myform" method="post" action="compilecode">
-        <!-- <form action="\" method="post"> -->
-        <h4>Language</h4>
-        <select name="lang">
-          <option value="C">C</option>
-          <option value="CPP14">C++</option>
-          <option value="JAVA">Java</option>
-          <option value="PYTHON">Python</option>
-        </select><br/>
-        <!-- <i class="fas fa-laptop-code"></i> -->
-        <h3>Code</h3>
-        <textarea rows="30" cols="60" id="code" name="code"><%= maincode %></textarea>
-        <br />
-        <h3>Input</h3>
-        <textarea rows="20" cols="60" id="input" name="input"><%= maininput %></textarea>
-        <br />
-        <!-- Language :  -->
-        <br />
-        <input type="submit" class="btn btn-success" value="submit" name="submit" />
-        <h3>OUTPUT</h3>
-        <textarea rows="20" cols="60" id="output" value="output"><%= mainoutput %></textarea>
-      
-          <p id="time">Time used :<%= maintime %></p>
-          <p id="memory">Memory Used: <%= mainmemory %></p>
-          <!-- <input type="reset" value="Reset"> -->
-          <!-- <input class="button" type="button" value="Reset" onclick="document.getElementById('myform').reset()"/> -->
-          <input type="button" value="Clear" onclick="javascript:eraseText();">
+        <div class="heading">
+          <h2><b>Online Compiler</b></h2>
+          <br />
+        </div>
+        <form id="myform" name="myform" method="post" action="compilecode">
+          <div class="lang"><h4>Language</h4></div>
+          <div class="selection">
+            <select name="lang">
+              <option value="C">C</option>
+              <option value="CPP14">C++</option>
+              <option value="JAVA">Java</option>
+              <option value="PYTHON">Python</option> </select
+            ><br />
+          </div>
+          <div class="code"><h3>Code</h3></div>
+          <div class="code_box">
+            <textarea rows="30" cols="60" id="code" name="code">
+<%= maincode %></textarea
+            >
+            <br />
+          </div>
+          <div class="input"><h3>Input</h3></div>
+          <div class="input_box">
+            <textarea rows="20" cols="60" id="input" name="input">
+<%= maininput %></textarea
+            >
+            <br />
+          </div>
+          <br />
+          <div class="submit_button">
+            <input
+              type="submit"
+              class="btn btn-success btn-lg"
+              value="Submit"
+              name="submit"
+            />
+          </div>
+          <br />
+          <div class="output"><h3>Output</h3></div>
+          <div class="output_box">
+            <textarea rows="20" cols="60" id="output" value="output">
+<%= mainoutput %></textarea
+            >
+          </div>
+          <div class="time"><p id="time">Time used : <%= maintime %></p></div>
+          <div class="memory">
+            <p id="memory">Memory Used:<%= mainmemory %></p>
+          </div>
+          <div class="clear_button">
+            <input
+              type="button"
+              value="Clear"
+              class="btn btn-info btn-lg"
+              onclick="javascript:eraseText();"
+            />
+          </div>
+          <br /><br />
           <script>
             function eraseText() {
               document.getElementById("code").value = "";
-            //   document.getElementById("output").value = "";
+              document.getElementById("output").value = "";
               document.getElementById("input").value = "";
-            //   document.getElementById("time").value = "";
-            //   document.getElementById("memory").value = "";
             }
           </script>
         </form>
-      <!-- <button onClick="document.getElementById('myform').reset()">Refresh</button>   -->
-
-    </center>
-    <!-- <br><h3 style="text-align: center;">Output</h3><br> -->
-    <center>
-      <!-- <textarea id="output" name="output" rows="10" cols="100"></textarea> -->
-    <br /><br /></center>
+      </center>
+    </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

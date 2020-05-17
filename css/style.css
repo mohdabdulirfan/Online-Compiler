@@ -1,21 +1,14 @@
-body{
-    background-color: aliceblue;
+.body{
+    background-color: rgb(242, 158, 255);
     animation-direction: normal;
 }
-textarea{
-    border: 2px;
-    border-color: rgb(3, 3, 12);
-    border-radius: 2px;
-}
-h3{
-    color: rgb(rgb(17, 13, 13), rgb(4, 12, 4), rgb(3, 3, 7));
-}
+.heading{
+    color: rgb(133, 2, 255);
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-
-/*    align-content: center;*/
-
-/*
-div{
-    position: sticky;
 }
-*/
+.heading:hover{
+    font-size: larger;
+    color: black;
+}

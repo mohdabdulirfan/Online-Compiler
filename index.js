@@ -16,12 +16,18 @@ app.use(bodyParser.urlencoded({
 const port = process.env.PORT || 3000;
 var actualoutput = "";
 var actualcode = "";
-var actualinput= "";
-var actualtime= "";
-var actualmemory= "";
+var actualinput = "";
+var actualtime = "";
+var actualmemory = "";
 app.get('/', function (req, res) {
 
-    res.render("main",{mainoutput:actualoutput,maininput:actualinput,maincode:actualcode,maintime:actualtime,mainmemory:actualmemory})
+    res.render("main", {
+        mainoutput: actualoutput,
+        maininput: actualinput,
+        maincode: actualcode,
+        maintime: actualtime,
+        mainmemory: actualmemory
+    })
 });
 
 // app.get('/', function (req, res) {
@@ -62,11 +68,11 @@ app.post('/compilecode', function (req, res) {
         var my_output = JSON.parse(response.body);
         // res.write("Output :\n" + my_output.run_status.output + "\nTime Used:" + my_output.run_status.time_used + "\nMemory Used: " + my_output.run_status.memory_used);
         //   res.send(document.getElementById("output").innerHTML = my_output);
-        actualoutput=my_output.run_status.output;
-        actualinput=input;
-        actualcode=code;
-        actualtime=my_output.run_status.time_used;
-        actualmemory=my_output.run_status.memory_used;
+        actualoutput = my_output.run_status.output;
+        actualinput = input;
+        actualcode = code;
+        actualtime = my_output.run_status.time_used;
+        actualmemory = my_output.run_status.memory_used;
         res.redirect("/");
     });
 });
