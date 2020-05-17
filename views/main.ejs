@@ -55,32 +55,33 @@
         </select><br/>
         <!-- <i class="fas fa-laptop-code"></i> -->
         <h3>Code</h3>
-        <textarea rows="30" cols="60" id="code" name="code"></textarea>
+        <textarea rows="30" cols="60" id="code" name="code"><%= maincode %></textarea>
         <br />
         <h3>Input</h3>
-        <textarea rows="20" cols="60" id="input" name="input"></textarea>
+        <textarea rows="20" cols="60" id="input" name="input"><%= maininput %></textarea>
         <br />
         <!-- Language :  -->
         <br />
         <input type="submit" class="btn btn-success" value="submit" name="submit" />
         <h3>OUTPUT</h3>
-        <textarea rows="20" cols="60" id="output" value="output"></textarea>
-        <p id="time">Time used :</p>
-        <p id="memory">Memory Used: </p>
-          <!-- <input type="reset" value="Reset" name="Reset" /> -->
+        <textarea rows="20" cols="60" id="output" value="output"><%= mainoutput %></textarea>
+      
+          <p id="time">Time used :<%= maintime %></p>
+          <p id="memory">Memory Used: <%= mainmemory %></p>
+          <!-- <input type="reset" value="Reset"> -->
+          <!-- <input class="button" type="button" value="Reset" onclick="document.getElementById('myform').reset()"/> -->
           <input type="button" value="Clear" onclick="javascript:eraseText();">
           <script>
             function eraseText() {
               document.getElementById("code").value = "";
-              // document.getElementById("output").value = "";
+            //   document.getElementById("output").value = "";
               document.getElementById("input").value = "";
-              // document.getElementById("time").value = "";
-              // document.getElementById("memory").value = "";
+            //   document.getElementById("time").value = "";
+            //   document.getElementById("memory").value = "";
             }
           </script>
-      </form>
-      <!-- <button onClick="document.getElementById('myform').reset()">Refresh</button> -->
-  
+        </form>
+      <!-- <button onClick="document.getElementById('myform').reset()">Refresh</button>   -->
 
     </center>
     <!-- <br><h3 style="text-align: center;">Output</h3><br> -->

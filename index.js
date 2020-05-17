@@ -4,17 +4,30 @@ var rout = express.Router();
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const ejs = require("ejs");
+
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
 const port = process.env.PORT || 3000;
-
+var actualoutput = "";
+var actualcode = "";
+var actualinput= "";
+var actualtime= "";
+var actualmemory= "";
 app.get('/', function (req, res) {
 
-    res.sendFile(path.join(__dirname, '/site.html'));
+    res.render("main",{mainoutput:actualoutput,maininput:actualinput,maincode:actualcode,maintime:actualtime,mainmemory:actualmemory})
 });
+
+// app.get('/', function (req, res) {
+
+//     res.sendFile(path.join(__dirname, '/site.html'));
+// });
 
 var request = require('request');
 // app.use(express.urlencoded())
@@ -47,8 +60,14 @@ app.post('/compilecode', function (req, res) {
         if (error) throw new Error(error.message);
         console.log(response.body);
         var my_output = JSON.parse(response.body);
-        res.send("Output :\n" + my_output.run_status.output + "\nTime Used:" + my_output.run_status.time_used + "\nMemory Used: " + my_output.run_status.memory_used);
+        // res.write("Output :\n" + my_output.run_status.output + "\nTime Used:" + my_output.run_status.time_used + "\nMemory Used: " + my_output.run_status.memory_used);
         //   res.send(document.getElementById("output").innerHTML = my_output);
+        actualoutput=my_output.run_status.output;
+        actualinput=input;
+        actualcode=code;
+        actualtime=my_output.run_status.time_used;
+        actualmemory=my_output.run_status.memory_used;
+        res.redirect("/");
     });
 });
 app.get('/', function (req, res) {

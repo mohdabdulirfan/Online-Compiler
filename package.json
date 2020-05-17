@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mohdabdulirfan/Online-Compiler.git"
   },
-  "author": "",
+  "author": "M.A.Irfan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mohdabdulirfan/Online-Compiler/issues"
@@ -20,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "compilex": "^0.7.4",
+    "ejs": "^3.1.3",
     "express": "^4.17.1",
     "request": "^2.88.2"
   },
@@ -27,5 +29,7 @@
     "node": "~12.14.0",
     "npm": "~6.13.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
 }
