@@ -1,8 +1,10 @@
 const express = require('express')
 var app = express();
 var rout = express.Router();
+const config = require('./config.js');
 const path = require('path');
 const bodyParser = require('body-parser');
+require('dotenv').config()
 
 const ejs = require("ejs");
 
@@ -53,7 +55,7 @@ app.post('/compilecode', function (req, res) {
             'Cookie': 'HE_UTS_ID_CL=4fe5324c6aec4cb4ae3841cbb320ef2d11ab38fca4d8430383ba8b5801ab6024; csrftoken=9hsAw4xd8C25o3AE7eT0HQvKQdsse55fejoNjp3Ae5avFi4ZxiiykjQs0yQ7jvCw; HE_UTS_ID_LP="/v3/code/compile/"; HE_UTS_ID=37d8a4def7274375bc8a72dff1d172d13b1ea0de2295457b90daba26d2c8bba5; lordoftherings="a5dr3g48ag2dg8s2b8r57gkil6ioip74:56686a1ccdb890474620b30c07171d90"; piratesofthecaribbean='
         },
         formData: {
-            'client_secret': '593e11682bfca5e7e767ceaa128aea958857e5dc',
+            'client_secret': process.env.API_KEY,
             'async': '0',
             'source': code,
             'lang': language,
