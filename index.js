@@ -21,6 +21,12 @@ var actualcode = "";
 var actualinput = "";
 var actualtime = "";
 var actualmemory = "";
+
+// app.get('/', function (req, res) {
+
+//     res.sendFile(path.join(__dirname, '/site.html'));
+// });
+
 app.get('/', function (req, res) {
 
     res.render("main", {
@@ -32,10 +38,7 @@ app.get('/', function (req, res) {
     })
 });
 
-// app.get('/', function (req, res) {
 
-//     res.sendFile(path.join(__dirname, '/site.html'));
-// });
 
 var request = require('request');
 // app.use(express.urlencoded())
@@ -68,18 +71,25 @@ app.post('/compilecode', function (req, res) {
         if (error) throw new Error(error.message);
         console.log(response.body);
         var my_output = JSON.parse(response.body);
+        if(my_output.run_status.status != 'AC'){
+            actualoutput = my_output.run_status.status_detail;
+        actualinput = input;
+        actualcode = code;
+        actualtime = my_output.run_status.time_used;
+        actualmemory = my_output.run_status.memory_used;
+        }
         // res.write("Output :\n" + my_output.run_status.output + "\nTime Used:" + my_output.run_status.time_used + "\nMemory Used: " + my_output.run_status.memory_used);
         //   res.send(document.getElementById("output").innerHTML = my_output);
+        else{
         actualoutput = my_output.run_status.output;
         actualinput = input;
         actualcode = code;
         actualtime = my_output.run_status.time_used;
         actualmemory = my_output.run_status.memory_used;
+        }
         res.redirect("/");
     });
 });
-app.get('/', function (req, res) {
-    document.getElementById('output').innerHTML = my_output.run_status.output;
-});
+
 
 app.listen(port);
